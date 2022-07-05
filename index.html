@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+
+    <title>Frontend Mentor | Rock, Paper, Scissors</title>
+    <link rel="stylesheet" href="./css/style.css" />
+
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <div><img src="./images/logo.svg" alt="" /></div>
+        <div class="scoreBox">
+          <h4 class="title">score</h4>
+          <h1 class="score">0</h1>
+        </div>
+      </div>
+      <section class="index">
+        <button class="circleBtn" data-name="paper">
+          <div class="circle paper main-paper">
+            <img src="./images/icon-paper.svg" alt="" />
+          </div>
+        </button>
+        <button class="circleBtn" data-name="scissors">
+          <div class="circle scissors main-scissors">
+            <img src="./images/icon-scissors.svg" alt="" />
+          </div>
+        </button>
+        <button class="circleBtn" data-name="rock">
+          <div class="circle rock main-rock">
+            <img src="./images/icon-rock.svg" alt="" />
+          </div>
+        </button>
+      </section>
+    </div>
+    <section class="startGame hidden">
+      <h1 class="startGame-header">you picked</h1>
+      <h1 class="startGame-header">the house picked</h1>
+      <div class="startGame-icon youPicked"></div>
+      <div class="startGame-results hidden">
+        <h1 class="startGame-playagain-header"></h1>
+        <button class="playAgainbtn">play again</button>
+      </div>
+      <div class="startGame-icon aiPicked"></div>
+    </section>
+
+    <button class="openBtn"><p>Rules</p></button>
+
+    <div class="rulesPic hidden">
+      <header>
+        <h1>rules</h1>
+        <button class="closeBtn">
+          <img src="./images/icon-close.svg" alt="" />
+        </button>
+      </header>
+      <img src="./images/image-rules.svg" alt="" />
+    </div>
+
+    <div class="overlay hidden"></div>
+
+    <div class="attribution">
+      Challenge by
+      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+        >Frontend Mentor</a
+      >. Coded by
+      <a href="https://stk-portfolio.netlify.app/">Shuk Ting Kwong</a>.
+    </div>
+    <script src="index.js"></script>
+  </body>
+</html>

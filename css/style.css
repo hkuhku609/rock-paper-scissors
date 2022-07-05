@@ -1,0 +1,349 @@
+@import url("https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600;700&display=swap");
+.openBtn {
+  color: #fff;
+  background: none;
+  position: absolute;
+  bottom: 2rem;
+  right: 2rem;
+  border: 2px solid hsl(217deg, 16%, 45%);
+  border-radius: 0.625rem;
+  padding: 0.5rem 2rem;
+  letter-spacing: 0.1875rem;
+  cursor: pointer;
+}
+
+.rulesPic {
+  background-color: #fff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 0.625rem;
+  padding: 2rem;
+  z-index: 2;
+}
+.rulesPic header {
+  color: hsl(229deg, 25%, 31%);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 2rem;
+}
+.rulesPic header .closeBtn {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 1;
+}
+
+.startGame {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-areas: "your-picked house-picked" "your-icon house-icon";
+  place-items: center;
+  height: 60vh;
+  max-width: 70vw;
+  margin: 0 auto;
+  position: relative;
+}
+.startGame-header {
+  letter-spacing: 2px;
+  color: #fff;
+}
+.startGame-header:first-of-type {
+  grid-area: your-picked;
+}
+.startGame-header:last-of-type {
+  grid-area: house-picked;
+}
+.startGame-icon {
+  transform: scale(1.4);
+  position: relative;
+  content: "";
+  min-width: 7.5rem;
+  min-height: 7.5rem;
+  background-color: hsl(237deg, 49%, 15%);
+  border-radius: 100%;
+  z-index: -1;
+}
+.startGame-icon:first-of-type {
+  grid-area: your-icon;
+}
+.startGame-icon:last-of-type {
+  grid-area: house-icon;
+}
+.startGame-results {
+  grid-area: result;
+  color: #fff;
+  font-size: 2rem;
+  display: grid;
+  place-items: center;
+}
+.startGame-results .playAgainbtn {
+  background-color: #fff;
+  color: hsl(237deg, 49%, 15%);
+  width: 200px;
+  height: 50px;
+  font-size: 1rem;
+  font-family: "Barlow Semi Condensed", sans-serif;
+  letter-spacing: 0.125rem;
+  border-radius: 10px;
+}
+.startGame-results .playAgainbtn:hover {
+  color: red;
+}
+
+.result {
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-areas: "your-picked . house-picked" "your-icon result house-icon";
+}
+
+.winner {
+  box-shadow: 0 0 0 25px #2c3556, 0 0 0 45px #232b49, 0 0 0 65px #1d294b;
+}
+
+@media (max-width: 375px) {
+  .startGame {
+    grid-template-areas: "your-icon house-icon" "your-picked house-picked";
+    height: 40vh;
+    max-width: 100vw;
+    margin: 0 auto;
+    position: relative;
+  }
+  .startGame-header {
+    font-size: 1rem;
+    letter-spacing: 2px;
+    color: #fff;
+  }
+  .startGame-header:first-of-type {
+    grid-area: your-picked;
+  }
+  .startGame-header:last-of-type {
+    grid-area: house-picked;
+  }
+  .startGame-icon {
+    transform: scale(1);
+    position: relative;
+    content: "";
+    min-width: 7.5rem;
+    min-height: 7.5rem;
+    background-color: hsl(237deg, 49%, 15%);
+    border-radius: 100%;
+    z-index: -1;
+  }
+  .startGame-icon:first-of-type {
+    grid-area: your-icon;
+  }
+  .startGame-icon:last-of-type {
+    grid-area: house-icon;
+  }
+  .startGame-results {
+    grid-area: result;
+    color: #fff;
+    font-size: 2rem;
+    display: grid;
+    place-items: center;
+  }
+  .startGame-results .playAgainbtn {
+    background-color: #fff;
+    color: hsl(237deg, 49%, 15%);
+    width: 200px;
+    height: 50px;
+    font-size: 1rem;
+    font-family: "Barlow Semi Condensed", sans-serif;
+    letter-spacing: 0.125rem;
+    border-radius: 10px;
+  }
+  .startGame-results .playAgainbtn:hover {
+    color: red;
+  }
+
+  .result {
+    grid-template-columns: repeat(2, 1fr);
+    height: 60vh;
+    grid-template-areas: "your-icon house-icon" "your-picked house-picked" "result result";
+  }
+
+  .winner {
+    z-index: -2;
+  }
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-transform: uppercase;
+}
+
+.attribution {
+  color: #fff;
+  font-size: 11px;
+  text-align: center;
+}
+.attribution a {
+  color: hsl(217deg, 16%, 45%);
+}
+
+body {
+  min-height: 100vh;
+  background: linear-gradient(to bottom, hsl(214deg, 47%, 23%), hsl(237deg, 49%, 15%));
+  font-family: "Barlow Semi Condensed", sans-serif;
+  overflow: hidden;
+}
+body button {
+  cursor: pointer;
+}
+
+.container {
+  padding-top: 20px;
+  margin: 0 auto;
+  position: relative;
+  max-width: 600px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 1.5rem;
+  border: 2px solid hsl(217deg, 16%, 45%);
+  border-radius: 1rem;
+  align-items: center;
+  max-width: 100%;
+}
+.header img {
+  max-width: 100%;
+}
+.header .scoreBox {
+  background-color: #fff;
+  width: 9.375rem;
+  padding: 0.5rem;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.header .scoreBox .title {
+  color: hsl(229deg, 64%, 46%);
+  letter-spacing: 2px;
+}
+.header .scoreBox .score {
+  color: hsl(229deg, 25%, 31%);
+  font-size: 64px;
+}
+
+.index {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-areas: "paper scissors" "rock rock";
+  place-items: center;
+  height: 60vh;
+}
+.index::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: no-repeat url(../images/bg-triangle.svg);
+  background-position: center;
+}
+.index .main-paper {
+  top: 25%;
+  left: 3.125rem;
+}
+.index .main-scissors {
+  top: 25%;
+  right: 3.125rem;
+}
+.index .main-rock {
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.circleBtn {
+  border: none;
+  background: none;
+}
+
+.circle {
+  position: relative;
+  background: #fff;
+  max-width: 100%;
+  width: 10rem;
+  height: 10rem;
+  border-radius: 100%;
+  display: grid;
+  place-items: center;
+}
+.circle img {
+  transform: scale(1.2);
+}
+
+[data-name=paper] {
+  grid-area: paper;
+}
+
+[data-name=scissors] {
+  grid-area: scissors;
+}
+
+[data-name=rock] {
+  grid-area: rock;
+}
+
+.paper {
+  border: 1rem solid hsl(230deg, 89%, 62%);
+  box-shadow: 0px 0.625rem 0px hsl(230deg, 63%, 54%), inset 0px 8px rgb(201, 201, 201);
+}
+
+.scissors {
+  border: 1rem solid hsl(39deg, 89%, 49%);
+  box-shadow: 0px 0.625rem 0px hsl(39deg, 89%, 44%), inset 0px 8px rgb(201, 201, 201);
+}
+
+.rock {
+  border: 1rem solid hsl(349deg, 71%, 52%);
+  box-shadow: 0px 0.625rem 0px hsl(349deg, 65%, 48%), inset 0px 8px rgb(201, 201, 201);
+}
+
+@media (max-width: 375px) {
+  .scoreBox {
+    width: 50px;
+  }
+
+  .index .circle {
+    padding: 2rem;
+  }
+  .index .circle img {
+    transform: scale(1);
+  }
+  .index .main-paper {
+    left: -10px;
+  }
+  .index .main-scissors {
+    right: -10px;
+  }
+
+  .header .scoreBox {
+    width: 7rem;
+  }
+
+  .openBtn {
+    right: 50%;
+    transform: translateX(50%);
+  }
+}
+.hidden {
+  display: none;
+}/*# sourceMappingURL=style.css.map */

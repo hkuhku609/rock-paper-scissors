@@ -1,0 +1,182 @@
+@use './rulesBtn';
+@use './startGame';
+
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600;700&display=swap');
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-transform: uppercase;
+}
+
+.attribution {
+  color: #fff;
+  font-size: 11px;
+  text-align: center;
+  a {
+    color: hsl(217, 16%, 45%);
+  }
+}
+
+body {
+  min-height: 100vh;
+  background: linear-gradient(
+    to bottom,
+    hsl(214, 47%, 23%),
+    hsl(237, 49%, 15%)
+  );
+  font-family: 'Barlow Semi Condensed', sans-serif;
+  button {
+    cursor: pointer;
+  }
+  overflow: hidden;
+}
+
+.container {
+  padding-top: 20px;
+  margin: 0 auto;
+  position: relative;
+  // border: 1px solid yellow;
+  max-width: 600px;
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 1.5rem;
+  border: 2px solid hsl(217, 16%, 45%);
+  border-radius: 1rem;
+  align-items: center;
+  max-width: 100%;
+  img {
+    max-width: 100%;
+  }
+
+  .scoreBox {
+    background-color: #fff;
+    width: 9.375rem;
+    padding: 0.5rem;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .title {
+      color: hsl(229, 64%, 46%);
+      letter-spacing: 2px;
+    }
+    .score {
+      color: hsl(229, 25%, 31%);
+      font-size: 64px;
+    }
+  }
+}
+.index {
+  // border: 1px solid red;
+  position: relative;
+  display: grid;
+  grid-template-columns: (repeat(2, 1fr));
+  grid-template-areas:
+    'paper scissors'
+    'rock rock';
+  place-items: center;
+  height: 60vh;
+
+  &::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: no-repeat url(../images/bg-triangle.svg);
+    background-position: center;
+  }
+
+  .main-paper {
+    top: 25%;
+    left: 3.125rem;
+  }
+  .main-scissors {
+    top: 25%;
+    right: 3.125rem;
+  }
+  .main-rock {
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+.circleBtn {
+  border: none;
+  background: none;
+}
+.circle {
+  position: relative;
+  background: #fff;
+  max-width: 100%;
+  width: 10rem;
+  height: 10rem;
+  border-radius: 100%;
+  display: grid;
+  place-items: center;
+
+  img {
+    transform: scale(1.2);
+  }
+}
+[data-name='paper'] {
+  grid-area: paper;
+}
+[data-name='scissors'] {
+  grid-area: scissors;
+}
+[data-name='rock'] {
+  grid-area: rock;
+}
+.paper {
+  border: 1rem solid hsl(230, 89%, 62%);
+  box-shadow: 0px 0.625rem 0px hsl(230, 63%, 54%),
+    inset 0px 8px rgb(201, 201, 201);
+}
+.scissors {
+  border: 1rem solid hsl(39, 89%, 49%);
+  box-shadow: 0px 0.625rem 0px hsl(39, 89%, 44%),
+    inset 0px 8px rgb(201, 201, 201);
+}
+.rock {
+  border: 1rem solid hsl(349, 71%, 52%);
+  box-shadow: 0px 0.625rem 0px hsl(349, 65%, 48%),
+    inset 0px 8px rgb(201, 201, 201);
+}
+
+@media (max-width: 375px) {
+  .scoreBox {
+    width: 50px;
+  }
+  .index {
+    .circle {
+      padding: 2rem;
+      // width: 8rem;
+      // height: 8rem;
+      img {
+        transform: scale(1);
+      }
+    }
+    .main-paper {
+      left: -10px;
+    }
+    .main-scissors {
+      right: -10px;
+    }
+  }
+  .header .scoreBox {
+    width: 7rem;
+  }
+
+  .openBtn {
+    right: 50%;
+    transform: translateX(50%);
+  }
+}
+.hidden {
+  display: none;
+}

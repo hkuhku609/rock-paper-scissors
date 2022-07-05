@@ -1,0 +1,144 @@
+.startGame {
+  // border: 1px solid red;
+  display: grid;
+  grid-template-columns: (repeat(2, 1fr));
+  grid-template-areas:
+    'your-picked house-picked'
+    'your-icon house-icon';
+  place-items: center;
+  height: 60vh;
+  max-width: 70vw;
+  margin: 0 auto;
+  position: relative;
+  &-header {
+    letter-spacing: 2px;
+    color: #fff;
+    &:first-of-type {
+      grid-area: your-picked;
+    }
+    &:last-of-type {
+      grid-area: house-picked;
+    }
+  }
+  &-icon {
+    transform: scale(1.4);
+    position: relative;
+    content: '';
+    // position: absolute;
+    min-width: 7.5rem;
+    min-height: 7.5rem;
+    background-color: hsl(237, 49%, 15%);
+    border-radius: 100%;
+    z-index: -1;
+
+    &:first-of-type {
+      grid-area: your-icon;
+    }
+    &:last-of-type {
+      grid-area: house-icon;
+    }
+  }
+  &-results {
+    grid-area: result;
+    color: #fff;
+    font-size: 2rem;
+    display: grid;
+    place-items: center;
+
+    .playAgainbtn {
+      background-color: #fff;
+      color: hsl(237, 49%, 15%);
+      width: 200px;
+      height: 50px;
+      font-size: 1rem;
+      font-family: 'Barlow Semi Condensed', sans-serif;
+      letter-spacing: 0.125rem;
+      border-radius: 10px;
+      &:hover {
+        color: red;
+      }
+    }
+  }
+}
+.result {
+  grid-template-columns: (repeat(3, 1fr));
+  grid-template-areas:
+    'your-picked . house-picked'
+    'your-icon result house-icon';
+}
+
+.winner {
+  box-shadow: 0 0 0 25px #2c3556, 0 0 0 45px #232b49, 0 0 0 65px #1d294b;
+}
+@media (max-width: 375px) {
+  .startGame {
+    grid-template-areas:
+      'your-icon house-icon'
+      'your-picked house-picked';
+    height: 40vh;
+    max-width: 100vw;
+    margin: 0 auto;
+    position: relative;
+    &-header {
+      font-size: 1rem;
+      letter-spacing: 2px;
+      color: #fff;
+      &:first-of-type {
+        grid-area: your-picked;
+      }
+      &:last-of-type {
+        grid-area: house-picked;
+      }
+    }
+    &-icon {
+      transform: scale(1);
+      position: relative;
+      content: '';
+      min-width: 7.5rem;
+      min-height: 7.5rem;
+      background-color: hsl(237, 49%, 15%);
+      border-radius: 100%;
+      z-index: -1;
+
+      &:first-of-type {
+        grid-area: your-icon;
+      }
+      &:last-of-type {
+        grid-area: house-icon;
+      }
+    }
+    &-results {
+      grid-area: result;
+      color: #fff;
+      font-size: 2rem;
+      display: grid;
+      place-items: center;
+
+      .playAgainbtn {
+        background-color: #fff;
+        color: hsl(237, 49%, 15%);
+        width: 200px;
+        height: 50px;
+        font-size: 1rem;
+        font-family: 'Barlow Semi Condensed', sans-serif;
+        letter-spacing: 0.125rem;
+        border-radius: 10px;
+
+        &:hover {
+          color: red;
+        }
+      }
+    }
+  }
+  .result {
+    grid-template-columns: (repeat(2, 1fr));
+    height: 60vh;
+    grid-template-areas:
+      'your-icon house-icon'
+      'your-picked house-picked'
+      'result result';
+  }
+  .winner {
+    z-index: -2;
+  }
+}
